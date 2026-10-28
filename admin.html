@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dicee · Admin</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="admin-panel">
+      <h1 class="admin-title">주사위 결과 설정</h1>
+      <form action="index.html" method="get">
+        <div class="admin-fields">
+          <label for="player1-result">Player 1
+            <input id="player1-result" name="player1" type="number" min="1" max="6" step="1" required placeholder="1~6" />
+          </label>
+          <label for="player2-result">Player 2
+            <input id="player2-result" name="player2" type="number" min="1" max="6" step="1" required placeholder="1~6" />
+          </label>
+        </div>
+        <div class="admin-actions">
+          <button type="submit">입력한 숫자로 결과 보기</button>
+          <button type="reset">입력 지우기</button>
+        </div>
+        <p class="admin-note">각 플레이어의 눈을 1~6 사이의 정수로 입력하세요. 메인 화면에서 2초 동안 주사위가 돌아간 뒤 입력한 결과가 표시됩니다.</p>
+      </form>
+      <nav class="page-links" aria-label="페이지 이동"><a href="index.html">메인 화면으로 · 랜덤 굴리기</a></nav>
+    </main>
+  </body>
+</html>
