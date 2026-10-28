@@ -25,9 +25,19 @@ function celebrateWinner(winnerImage) {
 
   // 첫 폭죽은 승리한 주사위에서, 이후 폭죽은 화면 전체에서 터집니다.
   const positions = [
-    [winnerBounds.left + winnerBounds.width / 2, winnerBounds.top + winnerBounds.height / 2],
-    ...[[0.15, 0.25], [0.8, 0.3], [0.45, 0.15], [0.25, 0.65], [0.75, 0.7], [0.5, 0.45], [0.9, 0.5]]
-      .map(([x, y]) => [window.innerWidth * x, window.innerHeight * y]),
+    [
+      winnerBounds.left + winnerBounds.width / 2,
+      winnerBounds.top + winnerBounds.height / 2,
+    ],
+    ...[
+      [0.15, 0.25],
+      [0.8, 0.3],
+      [0.45, 0.15],
+      [0.25, 0.65],
+      [0.75, 0.7],
+      [0.5, 0.45],
+      [0.9, 0.5],
+    ].map(([x, y]) => [window.innerWidth * x, window.innerHeight * y]),
   ];
   const burstRadius = Math.min(window.innerWidth, window.innerHeight) * 0.4;
 
@@ -57,13 +67,15 @@ const resultParams = new URLSearchParams(window.location.search);
 
 function selectedResult(player) {
   const value = Number(resultParams.get(player));
-  return Number.isInteger(value) && value >= 1 && value <= 6 ? value : randomDice();
+  return Number.isInteger(value) && value >= 1 && value <= 6
+    ? value
+    : randomDice();
 }
 
 function rollDice(result1, result2) {
   if (isRolling) return;
   isRolling = true;
-  document.querySelectorAll(".fireworks").forEach(effect => effect.remove());
+  document.querySelectorAll(".fireworks").forEach((effect) => effect.remove());
 
   // 주사위 눈을 바꾸면서 2초 동안 회전시킵니다.
   title.textContent = "주사위 굴리는 중...";
@@ -98,3 +110,5 @@ function rollDice(result1, result2) {
 }
 
 rollDice(selectedResult("player1"), selectedResult("player2"));
+
+//주석달기
